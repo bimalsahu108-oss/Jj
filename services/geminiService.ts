@@ -1,4 +1,4 @@
-import { GoogleGenAI, Content, Part, GenerateContentStreamResult } from "@google/genai";
+import { GoogleGenAI, Content, Part } from "@google/genai";
 import { Message, Attachment } from "../types";
 
 const SYSTEM_INSTRUCTION = `You are Jiksar, a highly capable and helpful AI assistant. 
@@ -97,14 +97,16 @@ class GeminiService {
         config.tools = [{ googleSearch: {} }];
       }
 
-      const result: GenerateContentStreamResult = await this.ai.models.generateContentStream({
+      const result = await this.ai.models.generateContentStream({
         model: modelName,
         contents: contents,
         config: config,
       });
 
-      for await (const chunk of result.stream) {
-        const text = chunk.text();
+      // Fixed: Iterate over result directly, not result.stream
+      for await (const chunk of result) {
+        // Fixed: Use .text property instead of .text() method
+        const text = chunk.text || "";
         const groundingMetadata = chunk.candidates?.[0]?.groundingMetadata;
         yield { text, groundingMetadata };
       }

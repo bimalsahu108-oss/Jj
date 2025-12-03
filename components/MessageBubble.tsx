@@ -16,12 +16,8 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isStreaming }) =
     <div className={`flex gap-4 w-full max-w-4xl mx-auto p-4 ${isUser ? 'justify-end' : 'justify-start'}`}>
       {/* Avatar (Model Only) */}
       {!isUser && (
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shrink-0 mt-1 shadow-lg shadow-blue-900/20">
-          <img 
-            src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" 
-            alt="Jiksar" 
-            className="w-5 h-5 animate-pulse-slow"
-          />
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-pink-600 flex items-center justify-center shrink-0 mt-1 shadow-lg shadow-pink-900/20">
+          <span className="text-white text-xs font-bold font-sans">J</span>
         </div>
       )}
 
@@ -130,11 +126,6 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isStreaming }) =
             </button>
             <button className="p-2 hover:bg-[#282A2C] rounded-full transition-colors" title="Regenerate">
               <RotateCw size={16} />
-            </button>
-            <div className="flex-1"></div>
-            <button className="p-2 hover:bg-[#282A2C] rounded-full transition-colors text-xs flex items-center gap-1">
-              <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" className="w-3 h-3 grayscale opacity-50" />
-              Gemini 2.5 Flash
             </button>
           </div>
         )}
