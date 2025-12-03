@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Jiksar",
+  "description": "A powerful AI assistant powered by Gemini with a modern, responsive chat interface.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
